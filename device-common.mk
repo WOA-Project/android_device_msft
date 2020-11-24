@@ -45,10 +45,20 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.2-impl \
     android.hardware.graphics.composer@2.2-service \
-    android.hardware.graphics.mapper@2.0-impl-2.1
-#    gralloc.gbm \
-#    hwcomposer.drm \
-#    libGLES_mesa
+    android.hardware.graphics.mapper@2.0-impl-2.1 \
+    gralloc.cityman \
+    hwcomposer.cityman \
+    libEGL_swiftshader \
+    libGLESv1_CM_swiftshader \
+    libGLESv2_swiftshader
+
+#libGLES_mesa
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.no_hw_vsync=1 \
+    ro.sf.lcd_density=400 \
+    ro.opengles.version=131072 \
+    ro.hardware.egl=swiftshader
 
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.hardware.gralloc=gbm \
@@ -57,7 +67,7 @@ PRODUCT_PACKAGES += \
 #    hwc.drm.use_framebuffer_target=1 \
 #    hwc.drm.use_overlay_planes=0 \
 #    ro.sf.lcd_density=400 \
-#    ro.opengles.version=196609
+#    ro.opengles.version=131072 #196609
 
 # Use Launcher3QuickStep
 PRODUCT_PACKAGES += Launcher3QuickStep
@@ -180,4 +190,4 @@ PRODUCT_COPY_FILES +=  \
 # Copy firmware files
 $(call inherit-product-if-exists, $(LOCAL_PATH)/firmware/device.mk)
 
-#PRODUCT_SOONG_NAMESPACES += external/mesa3d
+# PRODUCT_SOONG_NAMESPACES += external/mesa3d
