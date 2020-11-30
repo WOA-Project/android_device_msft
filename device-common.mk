@@ -187,6 +187,13 @@ PRODUCT_COPY_FILES +=  \
     frameworks/native/data/etc/android.hardware.usb.host.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.software.device_admin.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_admin.xml
 
+# NFC Setup
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/vendor/etc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+PRODUCT_PACKAGES += \
+    nfc_nci.$(TARGET_BOARD_PLATFORM)
+
 # Copy firmware files
 $(call inherit-product-if-exists, $(LOCAL_PATH)/firmware/device.mk)
 
