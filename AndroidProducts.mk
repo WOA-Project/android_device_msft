@@ -10,7 +10,13 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/cityman.mk
+    $(LOCAL_DIR)/cityman.mk \
+    $(LOCAL_DIR)/talkman.mk
 
 COMMON_LUNCH_CHOICES := \
-    cityman-userdebug
+    cityman-eng \
+    cityman-user \
+    cityman-userdebug \
+    talkman-eng \
+    talkman-user \
+    talkman-userdebug
